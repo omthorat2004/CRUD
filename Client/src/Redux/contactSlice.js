@@ -3,14 +3,14 @@ import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const getContacts = createAsyncThunk("getContacts",async()=>{
-    const response = await fetch("http://localhost:3000/")
+    const response = await fetch("https://crud-api-mauve.vercel.app//")
     const data = await response.json()
     return data.users
 })
 
 
 export const postContact = createAsyncThunk("addContact",async(body)=>{
-    const response = await fetch("http://localhost:3000/addContact",{
+    const response = await fetch("https://crud-api-mauve.vercel.app//addContact",{
         method:"POST",
         headers:{
             "Content-Type":"application/json"
@@ -22,7 +22,7 @@ export const postContact = createAsyncThunk("addContact",async(body)=>{
 })
 
 export const editContact = createAsyncThunk("editContact",async(body)=>{
-    const response = await fetch(`http://localhost:3000/updateContact/${body.id}`,{
+    const response = await fetch(`https://crud-api-mauve.vercel.app//updateContact/${body.id}`,{
         method:"PUT",
         headers:{
             "Content-Type":"application/json"
@@ -32,7 +32,7 @@ export const editContact = createAsyncThunk("editContact",async(body)=>{
 })
 
 export const deleteContact = createAsyncThunk("deleteContact",async(body)=>{
-    const response = await fetch(`http://localhost:3000/delete/${body.id}`,
+    const response = await fetch(`https://crud-api-mauve.vercel.app//${body.id}`,
     {
         method:"DELETE",
         headers:{
